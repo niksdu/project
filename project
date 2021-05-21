@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project</title>
+</head>
+
+<body>
+
+<h2>Form</h2>
+
+<form action="/action_page.php">
+<label for="name">Name:</label> <input type="text" id="name" name="name" required minlength="2" maxlength="10"><br><br>
+  
+<label for="email">Email:</label> <input type="text" id="email" name="email" minlength="8" maxlength="10"><br><br>
+
+<label for="password">Password:</label> <input type="password" id="passw" required minlength="8" maxlength="20"><br><br>
+<script>
+    function myFunction() {
+      var x = document.getElementById("myInput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+    </script> 
+
+
+<input type="submit" value="Submit">
+  
+  </form>
+
+
+<?php 
+// Obligats lauks ?>
+  <?php
+  $nameErr = $passwErr = "";
+  $name = $passw = "";
+  
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["name"])) {
+      $nameErr = "Name is required";
+    } else {
+      $name = test_input($_POST["name"]);
+    }
+  
+    if (empty($_POST["password"])) {
+      $passw = "";
+    } else {
+      $passw = test_input($_POST["password"]);
+    }
+    ?>
+
+
+  
+</body>
+</html>
